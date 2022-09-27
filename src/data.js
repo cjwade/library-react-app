@@ -36,7 +36,7 @@ export const books = [
 		id: 5,
 		title: "The 10X Rule",
 		url: "https://covers.openlibrary.org/b/id/9978588-L.jpg",
-		originalPrice: 32.99,
+		originalPrice: 34.99,
 		salePrice: null,
 		rating: 5,
 	},

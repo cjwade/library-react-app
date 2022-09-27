@@ -4,9 +4,9 @@ import { Link, useParams } from "react-router-dom";
 import Price from "../components/ui/Price";
 import Rating from "../components/ui/Rating";
 
-const BookInfo = () => {
-	const param = useParams();
-	console.log(param);
+const BookInfo = ({ books }) => {
+	const { id } = useParams();
+	const book = books.find((book) => +book.id === +id);
 
 	return (
 		<div>
@@ -24,19 +24,16 @@ const BookInfo = () => {
 							</div>
 							<div className="book__selected">
 								<figure className="book__selected--figure">
-									<img
-										src="https://covers.openlibrary.org/b/id/8091016-L.jpg"
-										alt=""
-										className="book__selected--img"
-									/>
+									<img src={book.url} alt="" className="book__selected--img" />
 								</figure>
 								<div className="book__selected--description">
-									<h2 className="book__selected--title">
-										Crack the Coding Interview
-									</h2>
-									<Rating rating="4.5" />
+									<h2 className="book__selected--title">{book.title}</h2>
+									<Rating rating={book.rating} />
 									<div className="book_selected--price">
-										<Price originalPrice={50} salePrice={null} />
+										<Price
+											originalPrice={book.originalPrice}
+											salePrice={book.salePrice}
+										/>
 									</div>
 									<div className="book__summary">
 										<div className="book__summary--tile">Summary</div>
