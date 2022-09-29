@@ -1,5 +1,5 @@
 import Footer from "./components/Footer";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -11,9 +11,28 @@ import Cart from "./pages/Cart";
 function App() {
 	const [cart, setCart] = useState([]);
 
-	function addToCart() {
-		console.log("add to cart")
+	function addToCart(book) {
+		setCart([...cart, { ...book, quantity: 1 }]);
 	}
+
+	function changeQuantity(book, quantity) {
+		setCart(
+			cart.map((item) => {
+				if (item.id === +book.id) {
+					return {
+						...item,
+						quantity: quantity,
+					};
+				} else {
+					return item;
+				}
+			})
+		);
+	}
+
+	useEffect(() => {
+		console.log(cart);
+	}, [cart]);
 
 	return (
 		<Router>
@@ -22,8 +41,18 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/books" element={<Books books={books} />} />
-					<Route path="/books/:id" element={<BookInfo books={books} addToCart={addToCart} />} />
-					<Route path="/cart" element={<Cart books={books} />} />
+					<Route
+						path="/books/:id"
+						element={
+							<BookInfo books={books} addToCart={addToCart} cart={cart} />
+						}
+					/>
+					<Route
+						path="/cart"
+						element={
+							<Cart books={books} cart={cart} changeQuantity={changeQuantity} />
+						}
+					/>
 				</Routes>
 				<Footer />
 			</div>
