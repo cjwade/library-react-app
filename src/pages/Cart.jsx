@@ -98,7 +98,7 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
 								</div>
 								<button
 									className="btn btn__checkout no-cursor"
-									onClick={() => alert("Have not got around to doing this")}
+									onClick={() => alert("Haven't got around to doing this")}
 								>
 									Proceed to checkout
 								</button>
