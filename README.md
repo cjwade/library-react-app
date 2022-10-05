@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Library
 
 Library is a mock e-commerce store built using React.js. Includes functionality to add and remove items from cart as well as sort items by price and rating. A skeleton state was also added to enhance the user experience.
 
