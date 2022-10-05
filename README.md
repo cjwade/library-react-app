@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Library is a mock e-commerce store built using React.js. Includes functionality to add and remove items from cart as well as sort items by price and rating. A skeleton state was also added to enhance the user experience.
 
 ## Available Scripts
 
